@@ -1,0 +1,6 @@
+/tmp/*
+/config/constants.php
+/config/database.php
+/config/email.php
+/config/constants.php
+/config/constants.php

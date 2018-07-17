@@ -1,0 +1,527 @@
+<?php
+define('SALE_MAN','Phòng Kinh Doanh: (Ms) Nguyễn Phương.');
+define('RENEW_DOMAIN', 30);
+define('NAMESERVER_1', 'ns1.tenten.vn');
+define('NAMESERVER_2', 'ns2.tenten.vn');
+Configure::write(
+    'driverType', array(
+            '0'  => 'Microsoft Access',
+            '1' => 'Microsoft Excel',
+			'2' => 'Microsoft SQL Native Client',
+			'3' => 'Text',
+    ));
+Configure::write(
+    'commonSetting', array(
+           '* * * * *'  => 'Every minute',
+            '*/5 * * * *' => 'Every 5 minutes',
+            '0,30 * * * *' => 'Twice an hour',
+            '0 * * * *' => 'Once an hour',
+            '0 0,12 * * *' => 'Twice a day',
+            '0 0 * * *' => 'Once a day',
+            '0 0 * * 0' =>'Once a week' ,
+            '0 0 1,15 * *' => '1st and 15th',
+            '0 0 1 * *' => 'Once a month',
+            '0 0 1 1 *' => 'Once a year',
+
+    ));
+Configure::write(
+    'minutes', array(
+            '*' => 'Every minute',
+            '*/2' => 'Every other minute',
+			 '*/5' => 'Every 5 minutes',
+			'*/10' => 'Every 10 minutes',
+			'*/15' => 'Every 15 minutes',
+			'*/30' => 'Every 30 minutes',
+			'--' =>'Minutes',
+			'0' => ':00 Top of hour',
+			'1' => ':01',
+			'2' => ':02' ,
+			'3' => ':03',
+			'4' => ':04',
+			'5' => ':05',
+			'6' => ':06',
+			'7' => ':07',
+			'8' => ':08',
+			'9' => ':09',
+			'10' => ':10',
+			'11' => ':11',
+			'12' => ':12',
+			'13' => ':13',
+			'14' => ':14',
+			'15' => ':15 Quarter past',
+			'16' => ':16',
+			'17' => ':17',
+			'18' => ':18',
+			'19' => ':19',
+			'20' => ':20',
+			'21' => ':21',
+			'22' => ':22',
+			'23' => ':23',
+			'24' => ':24',
+			'25' => ':25',
+			'26' => ':26',
+			'27' => ':27',
+			'28' => ':28',
+			'29' => ':29',
+			'30' => ':30 Half pass',
+			'31' => ':31',
+			'32' => ':32',
+			'33' => ':33',
+			'34' => ':34',
+			'35' => ':35',
+			'36' => ':36',
+			'37' => ':37',
+			'38' => ':38',
+			'39' => ':39',
+			'40' => ':40',
+			'41' => ':41',
+			'42' => ':42',
+			'43' => ':43',
+			'44' => ':44',
+			'45' => '45 Quarter til',
+			'46' => ':46',
+			'47' => ':47',
+			'48' => ':48',
+			'49' => ':49',
+			'50' => ':50',
+			'51' => ':51',
+			'52' => ':52',
+			'53' => ':53',
+			'54' => ':54',
+			'55' => ':55',
+			'56' => ':56',
+			'57' => ':57',
+			'58' => ':58',
+			'59' => ':59',			
+    ));
+Configure::write(
+'hours', array(
+		'*' => 'Every hour',
+		'*/2' => 'Every other hour',
+		'*/3' => 'Every 3 hours',
+		'*/4' => 'Every 4 hours',
+		'*/6' => 'Every 6 hours',
+		'0,12' => 'Every 12 hours',
+		'--' => 'Hours',
+		'0' => '12:00 AM Midnight',
+		'1' => '01:00 AM',
+		'2' => ':02',
+		'3' => ':03',
+		'4' => ':04',
+		'5' => ':05',
+		'6' => ':06',
+		'7' => ':07',
+		'8' => ':08',
+		'9' => ':09',
+		'10' => ':10',
+		'11' => ':11',
+		'12' => '12:00 PM noon',
+		'13' => ':13',
+		'14' => ':14',
+		'15' => ':15 Quarter past',
+		'16' => ':16',
+		'17' => ':17',
+		'18' => ':18',
+		'19' => ':19',
+		'20' => ':20',
+		'21' => ':21',
+		'22' => ':22',
+		'23' => ':23',
+    ));		
+Configure::write(
+'days', array(
+		'*' => 'Every day',
+		'*/2' => 'Every other day',
+		'0,15' => '1st and 15th',
+		'--' => 'Days',
+		'1' => '1st',
+		'2' => '2',
+		'3' => '03',
+		'4' => '04',
+		'5' => '05',
+		'6' => '06',
+		'7' => '07',
+		'8' => '08',
+		'9' => '09',
+		'10' => '10',
+		'11' => '11',
+		'12' => '12',
+		'13' => '13',
+		'14' => '14',
+		'15' => '15 th',
+		'16' => '16',
+		'17' => '17',
+		'18' => '18',
+		'19' => '19',
+		'20' => '20',
+		'21' => '21',
+		'22' => '22',
+		'23' => '23',
+		'24' => '24',
+		'25' => '25',
+		'26' => '26',
+		'27' => '27',
+		'28' => '28',
+		'29' => '29',
+		'30' => '30',
+		'31' => '31 st',
+    ));	
+Configure::write(
+'months', array(
+	 '*'=> 'Every month',
+	'*/2' => 'Every other month',
+	'*/4' => 'Every 3 months',
+	'1,7' => 'Every 6 months',
+	'--' =>'Months',
+	'1' => 'January',
+	'2' => 'February',
+	'3' => 'March',
+	'4' => 'April',
+	'5' => 'May',
+	'6' => 'June',
+	'7' => 'July',
+	'8' => 'August',
+	'9' => 'September',
+	'10' => 'October',
+	'11' => 'November',
+	'12' => 'December',
+	
+));	
+Configure::write(
+'weekdays', array(
+	'*' => 'Every weekday',
+	'1-5' => 'Monday thru Friday',
+	'6-0' => 'Sat and Sun',
+	'1,3,5' => 'Mon,Wed,Fri',
+	'2,4' => 'Tues,Thurs',
+	'--' => 'Weekdays',
+	'0' => 'Sunday',
+	'1' => 'Monday',
+	'2' => 'Tuesday',
+	'3' => 'Wednesday',
+	'4' => 'Thursday',
+	'5' => 'Friday',
+	'6' => 'Saturday',
+));	
+Configure::write(
+    'dotnetVersion', array(
+			'v2.0' => 'Framework 2.0',
+            'v3.0' => 'Framework 3.0',
+            'v3.5' => 'Framework 3.5',
+			'v4.0' => 'Framework 4.0',));
+Configure::write(
+    'country', array(
+			'JP' => 'JAPAN',
+            'US' => 'UNITED STATES',
+            'AR' => 'ARGENTINA',
+            'AU' => 'AUSTRALIA',
+            'AT' => 'AUSTRIA', 
+            'BE' => 'BELGIUM', 
+            'BZ' => 'Belize',
+            'BR' => 'BRAZIL',
+            'BN' => 'BRUNEI', 
+            'KH' => 'CAMBODIA',
+            'CA' => 'CANADA',
+            'KY' => 'CAYMAN ISLANDS',
+            'CN' => 'CHINA',
+            'HR' => 'CROATIA',
+            'CY' => 'CYPRUS',
+            'CZ' => 'CZECH',
+            'DK' => 'DENMARK', 
+            'EG' => 'EGYPT', 
+            'FI' => 'FINLAND',
+            'FR' => 'FRANCE',
+            'DE' => 'GERMANY', 
+            'GR' => 'GREECE',
+            'HK' => 'HONG KONG', 
+            'IN' => 'INDIA', 
+            'ID' => 'INDONESIA', 
+            'IR' => 'IRAN',
+            'IE' => 'IRELAND', 
+            'IL' => 'ISRAEL',
+            'IT' => 'ITALY', 
+            'JE' => 'JERSEY', 
+            'JO' => 'JORDAN',
+            'KE' => 'KENYA', 
+            'KR' => 'KOREA',
+            'LB' => 'LEBANON',
+            'LI' => 'LIECHTENSTEIN', 
+            'LU' => 'LUXEMBOURG',
+            'MY' => 'MALAYSIA',
+            'MX' => 'MEXICO',
+            'MC' => 'MONACO',
+            'MZ' => 'MOZAMBIQUE',
+            'NL' => 'NETHERLANDS',
+            'NZ' => 'NEW ZEALAND', 
+            'NO' => 'NORWAY',
+            'PK' => 'PAKISTAN',
+            'PG' => 'PAPUA NEW GUINEA',
+            'PE' => 'PERU',
+            'PH' => 'PHILIPPINES',
+            'PL' => 'POLAND',
+            'PT' => 'PORTUGAL',
+            'RU' => 'RUSSIA',
+            'VC' => 'SAINT VINCENT AND THE GRENADINES',
+            'SM' => 'SAN MARINO',
+            'SG' => 'SINGAPORE', 
+            'ZA' => 'SOUTH AFRICA',
+            'ES' => 'SPAIN',
+            'LK' => 'SRILANKA',
+            'SE' => 'SWEDEN',
+            'CH' => 'SWITZERLAND', 
+            'TW' => 'TAIWAN',
+            'TH' => 'THAILAND',
+            'TN' => 'TUNISIA', 
+            'TR' => 'TURKEY',
+            'AE' => 'UAE',
+            'GB' => 'UNITED KINGDOM',
+            'VN' => 'VIET NAM'));
+
+
+Configure::write(
+    'province', array(
+            '076' => 'An Giang',
+            '064' => 'Bà Rịa Vũng Tàu',
+            '781' => 'Bạc Liêu',
+            '281' => 'Bắc Cạn',
+            '240' => 'Bắc Giang',
+            '241' => 'Bắc Ninh',
+            '075' => 'Bến Tre',
+            '650' => 'Bình Dương',
+            '056' => 'Bình Định',
+            '651' => 'Bình Phước',
+            '062' => 'Bình Thuận',
+            '780' => 'Cà Mau',
+            '026' => 'Cao Bằng',
+            '710' => 'Cần Thơ',
+            '511' => 'Đà Nẵng',
+            '500' => 'Đắc Lắc',
+            '501' => 'Đắc Nông',
+            '230' => 'Điện Biên',
+            '061' => 'Đồng Nai',
+            '067' => 'Đồng Tháp',
+            '059' => 'Gia Lai',
+            '019' => 'Hà Giang',
+            '351' => 'Hà Nam',
+            '004' => 'Hà Nội',
+            '039' => 'Hà Tĩnh',
+            '320' => 'Hải Dương',
+            '031' => 'Hải Phòng',
+            '711' => 'Hậu Giang',
+            '018' => 'Hòa Bình',
+            '321' => 'Hưng Yên',
+            '058' => 'Khánh Hòa',
+            '077' => 'Kiên Giang',
+            '060' => 'Kon Tum',
+            '231' => 'Lai Châu',
+            '025' => 'Lạng Sơn',
+            '020' => 'Lào Cai',
+            '063' => 'Lâm Đồng',
+            '072' => 'Long An',
+            '350' => 'Nam Định',
+            '038' => 'Nghệ An',
+            '030' => 'Ninh Bình',
+            '068' => 'Ninh Thuận',
+            '210' => 'Phú Thọ',
+            '057' => 'Phú Yên',
+            '052' => 'Quảng Bình',
+            '510' => 'Quảng Nam',
+            '055' => 'Quảng Ngãi',
+            '033' => 'Quảng Ninh',
+            '053' => 'Quảng Trị',
+            '079' => 'Sóc Trăng',
+            '022' => 'Sơn La',
+            '066' => 'Tây Ninh',
+            '036' => 'Thái Bình',
+            '280' => 'Thái Nguyên',
+            '037' => 'Thanh Hóa',
+            '054' => 'Thừa Thiên Huế',
+            '073' => 'Tiền Giang',
+            '008' => 'TPHCM',
+            '074' => 'Trà Vinh',
+            '027' => 'Tuyên Quang',
+            '070' => 'Vĩnh Long',
+            '211' => 'Vĩnh Phúc',
+            '029' => 'Yên Bái'
+    ));
+                
+Configure::write(
+    'NewsFlg', array(
+			'2' => 'Gửi văn bản bằng HTML',
+            '1' => 'Gửi văn bản bằng TEXT',
+            '0' => 'Không giao hàng'));
+Configure::write(
+    'question', array(
+			'movie' => 'Bộ phim yêu thích của bạn là gì?',
+            'pet' => 'Con vật cưng của bạn tên là gì?',
+            'mother' => 'Tên mẹ bạn là gì?',
+			'birthplace' => 'Nơi sinh của bạn?',
+			'star' => 'Ngôi sao bạn yêu thích?',
+			'hobby' => 'Sở thích của bạn là gì?',
+			'sports' => 'Môn thể thao bạn yêu thích?',
+			'food' => 'Món ăn bạn yêu thích?',
+			'school' => 'Trường tốt nghiệp của bạn?'));
+
+$config['option_language'] = array("deu" => __("Deutsch"),
+									"fre" => __("French"),
+									"jap" => __("Japanese"),
+									"chi" => __("Chinese")
+);
+
+
+
+// Define site info
+//define("SITE_URL", "https://domain.tenten.vn/");
+define("SITE_URL", 'https://emailserver_dev.com/');
+define("SITE_DIR", dirname(dirname(dirname(__FILE__))) . "/");
+define("SITE_VIEW", ROOT ."/app/View/");
+define("STATUS_SUCCESS", 10000);
+
+// constants
+// variable
+define('KEY','kB8d2aac6fd0C407');
+define('PANEL','GLIQ');
+define('COOKIE_TIME',1200);
+
+// View derectory
+define('VIEW', "/app/View/");
+
+define ("MAX_PER_PAGE", 5);
+define ("MAX_PAGE", 10);
+//setting pager
+Configure::write(
+    'Pager.rpp', array(
+            '5' => '5',
+            '10' => '10',
+            '20' => '20',
+            '50' => '50',
+            '100' => '100',
+        )
+);
+
+//define some contact type
+define("CONTACT_TYPE_CONTACT", 0);
+define("CONTACT_TYPE_REGISTER", 1);
+define("CONTACT_TYPE_ADMIN", 2);
+define("CONTACT_TYPE_TECH", 3);
+define("CONTACT_TYPE_BILL", 4);
+define("CONTACT_TYPE_OTHER", 5);
+
+Configure::write(
+    'contactType', array(
+            CONTACT_TYPE_CONTACT => 'Contact',
+            CONTACT_TYPE_REGISTER => 'Register',
+            CONTACT_TYPE_ADMIN => 'Admin',
+            CONTACT_TYPE_TECH => 'Tech',
+            CONTACT_TYPE_BILL => 'Bill',
+            CONTACT_TYPE_OTHER => '公開窓口'
+            )
+            );
+
+//setting api, enable call API
+define("API_ENABLE", TRUE);
+//define("API_URL", 'https://test-des.onamae.com/api/ExecuteInternal.do');
+define("API_URL", 'https://test-api.onamae.com/api/Execute.do');
+define("API_LOGIN_ID", '123');
+define("API_LOGIN_PASSWORD", '123');
+
+
+//define default ZipCode,CountryCode,PostalCode
+define("DEFAULT_STATE","Tokyo ");
+define("DEFAULT_ZIP_CODE","1508512");
+define("DEFAULT_COUNTRY_CODE","VN");
+define("DEFAULT_POSTAL_CODE","00");
+define("DEFAULT_ORG_NAME", "GMO RUNSYSTEM CORPORATION");
+define("DEFAULT_ORG_TYPE", 10); //10    corporation    株式会社    
+
+//setting groupd domain
+Configure::write(
+    'groupDomain', array(
+            '0' => 'Tên miền quốc tế',
+            '1' => 'Tên miền Việt Nam',
+            )
+    );
+
+//define SUPPORT page constant
+define('DEFAULT_STAFF_DOMAIN',1);
+define('DEFAULT_STAFF_HOSTING',2);
+    
+//define some session name
+define('DEFAULT_SS_HOSTING_DOMAIN','domainHostingInfo');
+define('DEFAULT_SS_ACCOUNT_INFO','DomainAccountInfo');
+define('DEFAULT_SS_EMAIL_INFO','EmailAccountInfo');
+define('DEFAULT_SS_HOSTING','HostingInfo');
+define('DEFAULT_SS_LANGUAGE','LanguageInfo');
+
+//define domain redirect
+define('DEFAULT_ALL_DOMAIN','ALL');
+define('DEFAULT_REDIRECT_PERMANENT','Permanent');
+define('DEFAULT_REDIRECT_TMP','Temporary');
+define('DEFAULT_REDIRECT_FOUND','Found');
+
+
+//define www redirect type
+define('DEFAULT_ONLY_WWW_REDIRECT',1);
+define('DEFAULT_WWW_REDIRECT',2);
+define('DEFAULT_NOT_WWW_REDIRECT',3);
+
+//define email server, named on config/email.php
+define('DEFAULT_EMAIL_METHOD','gmail');//gmail
+
+//account type
+define('ACCOUNT_TYPE_ADMIN', 0);
+define('ACCOUNT_TYPE_REGISTER', 1);
+define('ACCOUNT_TYPE_DOMAIN', 2);
+define('ACCOUNT_TYPE_HOSTING', 3);
+
+//mail setting
+define('EMAIL_FROM_NAME', 'GMO RUNSYSTEM CORPORATION');
+
+define('EMAIL_FROM', 'Ten mien tenten.vn <hotrokhachhang@tenten.vn>');
+define('EMAIL_FROM_NETNAM', 'tenten.vn <info@tenten.vn>');
+define('EMAIL_FROM_BUSINESS', 'kinh doanh tenten.vn <kinhdoanh@tenten.vn>');
+define('EMAIL_FROM_TECHNICAL', 'ky thuat tenten.vn <kythuat@tenten.vn>');
+define('EMAIL_FROM_SUPPORT', 'ho tro tenten.vn <hotrokhachhang@tenten.vn>');
+define('EMAIL_FROM_DESIGNER', 'thiet ke tenten.vn <design@tenten.vn>');
+define('EMAIL_FROM_KE_TOAN', 'ke toan tenten.vn <billing@tenten.vn>');
+
+define('DEFAULT_ADMIN_EMAIL','info@tenten.vn');
+define('DEFAULT_SALE_EMAIL','kinhdoanh@tenten.vn');
+define('EMAIL_SUPPORT_TECHNICAL', 'kythuat@tenten.vn');
+
+define('TENTEN_URL','http://tenten.vn/');
+define('DOMAIN_URL','https://domain.tenten.vn/');
+define('HOSTING_URL','https://cpanel.tenten.vn/');
+define('NAVI_URL','https://navi.tenten.vn/');
+define('CPANEL_URL','https://cpanel.tenten.vn/');
+
+define('FILEMANAGER_URL','http://10.0.0.21/FileManager/');
+define('FILEMANAGER_URL_WIN','http://10.0.0.7/FileManager/');
+define('FILEMANAGER_HOME_LINUX','/home/www/');
+define('FILEMANAGER_HOME_WIN','C:/Hosting/');
+
+//define RUN WINDOWS API 
+//define('RUN_API_URL','http://winapi.tenten.vn/');
+//define('RUN_API_URL','http://domainapi.tenten.vn/');
+define('RUN_API_URL','http://daily_domainapi.tenten.vn/');
+define('RUN_API_URL_DOMAIN','http://domainapi.tenten.vn/');
+//define('RUN_API_URL_BASE','http://winapi.tenten.vn/');
+define('RUN_API_URL_BASE','http://domainapi.tenten.vn/');
+define('EMAIL_SUPPORT_ADMIN', 'hotrokhachhang@tenten.vn');
+define('EMAIL_DEVELOP_TEAM', 'thientruongnd18@gmail.com');
+
+//define for history access
+//number allow login invalid then show captcha
+define('TOTAL_ALLOW_LOGGED_IN', 3);
+define('SITE_TYPE_NAVI', 0);
+define('SITE_TYPE_STAFT', 1);
+define('SITE_TYPE_CPANEL', 2);
+define('SITE_TYPE_DOMAIN', 3);
+define('SITE_TYPE_PRODUCT', 4);
+define('SITE_TYPE_EMAIL', 5);
+
+define("HOSTING_TYPE_LINUX", "1");
+define("HOSTING_TYPE_WINDOWS", "0");
+define('DEBUG_EMAIL', true);
+
+?>
